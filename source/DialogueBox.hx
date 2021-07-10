@@ -43,7 +43,7 @@ class DialogueBox extends FlxSpriteGroup
 			case 'senpai':
 				FlxG.sound.playMusic(Paths.music('Lunchbox'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
-			case 'High School Conflict':
+			case 'High-School-Conflict':
 				FlxG.sound.playMusic(Paths.music('Lunchbox'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 			case 'thorns':
@@ -73,18 +73,18 @@ class DialogueBox extends FlxSpriteGroup
 				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
-			case 'High School Conflict':
+			case 'High-School-Conflict':
 					hasDialog = true;
 					box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-monika');
 					box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 					box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
-			case 'Bara No Yume':
+			case 'Bara-No-Yume':
 					hasDialog = true;
 					FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
 					box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-monika');
 					box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 					box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
-			case 'Your Demise':
+			case 'Your-Demise':
 				    hasDialog = true;
 					box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-monika');
 					box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
@@ -113,7 +113,7 @@ class DialogueBox extends FlxSpriteGroup
 		if (!hasDialog)
 			return;
 
-		if (PlayState.SONG.song.toLowerCase()=='High School Conflict' || PlayState.SONG.song.toLowerCase()=='Bara No Yume' || PlayState.SONG.song.toLowerCase()=='Your Demise')
+		if (PlayState.SONG.song.toLowerCase()=='High-School-Conflict' || PlayState.SONG.song.toLowerCase()=='Bara-No-Yume' || PlayState.SONG.song.toLowerCase()=='Your-Demise')
 			{
 		portraitLeft = new FlxSprite(-20, 40);
 		portraitLeft.frames = Paths.getSparrowAtlas('weeb/monika');

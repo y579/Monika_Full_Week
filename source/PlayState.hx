@@ -385,16 +385,16 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
-			case 'high school conflict':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('high school conflict/high-school-conflictDialogue'));
-				extra1 = CoolUtil.coolTextFile(Paths.txt('high school conflict/high-school-conflictEndDialogue')); 
-			case 'Bara No Yume':
-				extra3 = CoolUtil.coolTextFile(Paths.txt('bara no yume/bara-no-yume-Dialogue'));
-				extra1 = CoolUtil.coolTextFile(Paths.txt('bara no yume/bara-no-yume-EndDialogue')); 
-			case 'Your Demise':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseDialogue'));
-				extra3 = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseEndDialogue'));
-				extra1 = CoolUtil.coolTextFile(Paths.txt('your demise/FinalCutsceneDialouge'));
+			case 'high-school-conflict':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('high-school-conflict/high-school-conflictDialogue'));
+				extra1 = CoolUtil.coolTextFile(Paths.txt('high-school-conflict/high-school-conflictEndDialogue')); 
+			case 'Bara-No-Yume':
+				extra3 = CoolUtil.coolTextFile(Paths.txt('Bara-No-Yume/bara-no-yume-Dialogue'));
+				extra1 = CoolUtil.coolTextFile(Paths.txt('Bara-No-Yume/bara-no-yume-EndDialogue')); 
+			case 'Your-Demise':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('Your-Demise/your-demiseDialogue'));
+				extra3 = CoolUtil.coolTextFile(Paths.txt('Your-Demise/your-demiseEndDialogue'));
+				extra1 = CoolUtil.coolTextFile(Paths.txt('Your-Demise/FinalCutsceneDialouge'));
 		}
 
 		//defaults if no stage was found in chart
@@ -485,7 +485,7 @@ class PlayState extends MusicBeatState
 					bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
 					bgGirls.updateHitbox();
 
-					if (songLowercase == "Bara No Yume")
+					if (songLowercase == "Bara-No-Yume")
 						{
 							if(FlxG.save.data.distractions){
 								add(bgGirls);
@@ -995,7 +995,7 @@ class PlayState extends MusicBeatState
 							});
 						});
 					});
-				case 'high school conflict':
+				case 'high-school-conflict':
 					introcutscene(doof);
 				case 'Bara-No-Yume':
 					introcutscene(doof3);
@@ -1014,7 +1014,7 @@ class PlayState extends MusicBeatState
 		{
 			switch (curSong.toLowerCase())
 			{
-				case 'Your Demise':
+				case 'Your-Demise':
 					DarkStart(doof);
 				default:
 					startCountdown();
@@ -1041,7 +1041,7 @@ class PlayState extends MusicBeatState
 		{
 			switch(curSong.toLowerCase())
 				{
-					case "Your Demise":
+					case "Your-Demise":
 						{
 							camZooming = false;
 							inCutscene = true;
@@ -1088,7 +1088,7 @@ class PlayState extends MusicBeatState
 
 			switch (curSong.toLowerCase())
 				{
-					case "Your Demise":
+					case "Your-Demise":
 						{
 							remove(gf);
 							add(whiteflash);
@@ -1106,7 +1106,7 @@ class PlayState extends MusicBeatState
 								});
 						}
 
-					case "Bara No Yume":
+					case "Bara-No-Yume":
 						{
 							FlxG.sound.play(Paths.sound('ANGRY'));
 							dad.playAnim('cutsceneidle');
@@ -1125,7 +1125,7 @@ class PlayState extends MusicBeatState
 						}
 
 
-					case "High School Conflict":
+					case "high-school-conflict":
 						{
 							add(black);
 							FlxG.sound.playMusic(Paths.music('Lunchbox', 'week6'), 0);
@@ -1172,7 +1172,7 @@ class PlayState extends MusicBeatState
 		{
 			switch(SONG.song.toLowerCase())
 				{
-					case "Your Demise":
+					case "Your-Demise":
 						{
 							camZooming = false;
 							inCutscene = true;
@@ -1245,7 +1245,7 @@ class PlayState extends MusicBeatState
 								});
 						}
 
-					case "Bara No Yume":
+					case "Bara-No-Yume":
 						dad.playAnim('cutscenetransition');
 						new FlxTimer().start(1.2, function(godlike:FlxTimer)
 						{
@@ -2400,7 +2400,7 @@ class PlayState extends MusicBeatState
 							case "your reality":
 								camFollow.x = boyfriend.getMidpoint().x - 500;
 								camFollow.y = boyfriend.getMidpoint().y - 600;
-							case "Bara No Yume":
+							case "Bara-No-Yume":
 								camFollow.x = boyfriend.getMidpoint().x - 300;
 								camFollow.y = boyfriend.getMidpoint().y - 200;
 							default:
@@ -2774,7 +2774,7 @@ class PlayState extends MusicBeatState
 			{
 				switch (curSong.toLowerCase())
 				{
-					case 'High School Conflict':
+					case 'high-school-conflict':
 						endcutscene(doof1);
 					case 'Bara-No-Yume':
 						endcutscene(doof1);
@@ -2887,7 +2887,7 @@ class PlayState extends MusicBeatState
 									}
 								case false:
 									{
-										if (SONG.song.toLowerCase() == 'Your Demise') {
+										if (SONG.song.toLowerCase() == 'Your-Demise') {
 											FlxG.switchState(new BeatenSubState());
 											FlxG.save.data.monikabeaten = true;
 										} else {
@@ -2953,7 +2953,7 @@ class PlayState extends MusicBeatState
 					showCutscene = true;
 					switch (SONG.song.toLowerCase())
 						{
-							case 'Your Demise':
+							case 'Your-Demise':
 								{
 									camHUD.visible = false;
 									var schoolFakeout:FlxSprite = new FlxSprite(400, 200);
@@ -4011,7 +4011,7 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
-		if (SONG.song.toLowerCase() == 'Your Demise')
+		if (SONG.song.toLowerCase() == 'Your-Demise')
 			{
 				switch (curStep)
 				{
@@ -4140,7 +4140,7 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'school':
-				if (SONG.song.toLowerCase() == "Bara No Yume")
+				if (SONG.song.toLowerCase() == "Bara-No-Yume")
 					{
 						if(FlxG.save.data.distractions){
 							bgGirls.dance();
