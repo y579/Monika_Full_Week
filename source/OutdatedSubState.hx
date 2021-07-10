@@ -28,9 +28,9 @@ class OutdatedSubState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGFriends'));
-		bg.scale.x *= 1;
-		bg.scale.y *= 1;
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('week54prototype', 'shared'));
+		bg.scale.x *= 1.55;
+		bg.scale.y *= 1.55;
 		bg.screenCenter();
 		add(bg);
 		
@@ -43,9 +43,13 @@ class OutdatedSubState extends MusicBeatState
 		add(kadeLogo);
 		
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
-			"You've completed the Monika Full Week!"
-			+ "\nA new song is now available in the freeplay menu!"
-			+ "\n\nWe hope you enjoy!\n\n",
+			"Your Kade Engine is outdated!\nYou are on "
+			+ MainMenuState.kadeEngineVer
+			+ "\nwhile the most recent version is " + needVer + "."
+			+ "\n\nWhat's new:\n\n"
+			+ currChanges
+			+ "\n& more changes and bugfixes in the full changelog"
+			+ "\n\nPress Space to view the full changelog and update\nor ESCAPE to ignore this",
 			32);
 		
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.fromRGB(200, 200, 200), CENTER);
@@ -79,10 +83,16 @@ class OutdatedSubState extends MusicBeatState
 	}
 
 	override function update(elapsed:Float)
+	{
+		if (controls.ACCEPT)
 		{
-			if (controls.ACCEPT)
-			{
-				FlxG.switchState(new CreditsMenu());
-			}
+			fancyOpenURL("https://kadedev.github.io/Kade-Engine/changelogs/changelog-" + needVer);
 		}
+		if (controls.BACK)
+		{
+			leftState = true;
+			FlxG.switchState(new MainMenuState());
+		}
+		super.update(elapsed);
+	}
 }

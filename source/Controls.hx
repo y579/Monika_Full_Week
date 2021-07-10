@@ -12,7 +12,7 @@ import flixel.input.gamepad.FlxGamepadButton;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
 
-#if (haxe >= "4.1.0")
+#if (haxe >= "4.0.0")
 enum abstract Action(String) to String from String
 {
 	var UP = "up";
@@ -510,12 +510,13 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
 				inline bindKeys(Control.RESET, [FlxKey.fromString("R")]);
 			case Duo(true):
-				inline bindKeys(Control.UP, [W, FlxKey.UP]);
-				inline bindKeys(Control.DOWN, [S, FlxKey.DOWN]);
-				inline bindKeys(Control.LEFT, [A, FlxKey.LEFT]);
-				inline bindKeys(Control.RIGHT, [D, FlxKey.RIGHT]);
-				inline bindKeys(Control.ACCEPT, [G, Z, SPACE, ENTER]);
-				inline bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
+				inline bindKeys(Control.UP, [W, K]);
+				inline bindKeys(Control.DOWN, [S, J]);
+				inline bindKeys(Control.LEFT, [A, H]);
+				inline bindKeys(Control.RIGHT, [D, L]);
+				inline bindKeys(Control.ACCEPT, [Z]);
+				inline bindKeys(Control.BACK, [X]);
+				inline bindKeys(Control.PAUSE, [ONE]);
 				inline bindKeys(Control.RESET, [R]);
 			case Duo(false):
 				inline bindKeys(Control.UP, [FlxKey.UP]);
@@ -533,21 +534,21 @@ class Controls extends FlxActionSet
 		switch (scheme)
 		{
 			case Solo:
-				bindKeys(Control.UP, [W, FlxKey.UP]);
-				bindKeys(Control.DOWN, [S, FlxKey.DOWN]);
-				bindKeys(Control.LEFT, [A, FlxKey.LEFT]);
-				bindKeys(Control.RIGHT, [D, FlxKey.RIGHT]);
+				bindKeys(Control.UP, [W, K, FlxKey.UP]);
+				bindKeys(Control.DOWN, [S, J, FlxKey.DOWN]);
+				bindKeys(Control.LEFT, [A, H, FlxKey.LEFT]);
+				bindKeys(Control.RIGHT, [D, L, FlxKey.RIGHT]);
 				bindKeys(Control.ACCEPT, [Z, SPACE, ENTER]);
 				bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
 				bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
 				bindKeys(Control.RESET, [R]);
 			case Duo(true):
-				bindKeys(Control.UP, [W]);
-				bindKeys(Control.DOWN, [S]);
-				bindKeys(Control.LEFT, [A]);
-				bindKeys(Control.RIGHT, [D]);
-				bindKeys(Control.ACCEPT, [G, Z]);
-				bindKeys(Control.BACK, [H, X]);
+				bindKeys(Control.UP, [W, K]);
+				bindKeys(Control.DOWN, [S, J]);
+				bindKeys(Control.LEFT, [A, H]);
+				bindKeys(Control.RIGHT, [D, L]);
+				bindKeys(Control.ACCEPT, [Z]);
+				bindKeys(Control.BACK, [X]);
 				bindKeys(Control.PAUSE, [ONE]);
 				bindKeys(Control.RESET, [R]);
 			case Duo(false):
@@ -567,6 +568,9 @@ class Controls extends FlxActionSet
 
 	public function loadKeyBinds()
 	{
+
+		//trace(FlxKey.fromString(FlxG.save.data.upBind));
+
 		removeKeyboard();
 		if (gamepadsAdded.length != 0)
 			removeGamepad();

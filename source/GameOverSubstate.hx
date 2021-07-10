@@ -40,7 +40,6 @@ class GameOverSubstate extends MusicBeatSubstate
 		Conductor.songPosition = 0;
 
 		bf = new Boyfriend(x, y, daBf);
-		trace(bf == null ? "bf if hella dumb" : "bf has a big forehead");
 		add(bf);
 
 		camFollow = new FlxObject(bf.getGraphicMidpoint().x, bf.getGraphicMidpoint().y, 1, 1);
@@ -49,13 +48,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		FlxG.sound.play(Paths.sound('fnf_loss_sfx' + stageSuffix));
 		Conductor.changeBPM(100);
 
-		// FlxG.camera.followLerp = 1;
-		// FlxG.camera.focusOn(FlxPoint.get(FlxG.width / 2, FlxG.height / 2));
 		FlxG.camera.scroll.set();
 		FlxG.camera.target = null;
 
 		if (bf.curCharacter == "playablesenpai") {
-			//FlxG.camera.zoom = FlxG.camera.zoom - 0.25;
 
 			FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.15}, 0.35, {
 				ease: FlxEase.quadOut
@@ -124,8 +120,6 @@ class GameOverSubstate extends MusicBeatSubstate
 					default:
 						FlxG.sound.play(Paths.music('gameOverEnd' + stageSuffix));
 				}
-			//FlxG.sound.play(Paths.music('gameOverEnd' + stageSuffix));
-
 			new FlxTimer().start(0.7, function(tmr:FlxTimer)
 			{
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
